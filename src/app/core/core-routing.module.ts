@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {CoreComponent} from "./core.component";
 
 
@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: CoreComponent,
     children: [
-      {path: '', pathMatch: 'full', redirectTo: 'home'},
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', loadChildren: '../pages/home/home.module#HomeModule'},
       {path: 'welcome', loadChildren: '../pages/welcome/welcome.module#WelcomeModule'},
     ]
@@ -19,4 +19,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CoreRoutingModule { }
+export class CoreRoutingModule {
+}
